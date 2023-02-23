@@ -216,19 +216,20 @@ body{
 }
 
 .profile-pic-div{
-    margin-top: 200px;
-    height: 200px;
-    width: 200px;
+    margin-top: 280px;
+    height: 300px;
+    width: 300px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    border-radius: 50%;
+    border-radius: 0%;
     overflow: hidden;
     border: 1px solid grey;
 }
 
 #photo{
+    margin-bottom: 10000000px;
     height: 100%;
     width: 100%;
 }
@@ -252,4 +253,16 @@ body{
     font-size: 15px;
     cursor: pointer;
     display: none;
+}
+.gg{
+    margin-top: 10px;
+}
+.ggo{
+    color: rgb(209, 7, 77);
+    border: ridge;
+    text-align: center;
+    font-size: large;
+}
+.ggo::placeholder{
+    color: gray;
 }
