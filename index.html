@@ -3,9 +3,221 @@
 <head>
     <title>LOGIN</title>
     <link rel="stylesheet" href="s.css">
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="b.css">
-	</style>
+	<style>
+        i
+.container{
+    width: 700px;
+    height: auto;
+    background-color: #fff;
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: flex;
+    justify-content: center;
+}
+.box{
+    width: 500px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+h3{
+    font-size: 35px;
+    margin: 15px;
+}
+.name{
+    width: 100%;
+    position: relative;
+    margin-bottom: 15px;
+    display: none;
+}
+.name i{
+    position: absolute;
+    top: 50%;
+    left: 30px;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #bbb;
+}
+.name input{
+    margin-left: 70px;
+    width: 70%;
+    padding: 20px 60px;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    background-color: #eee;
+    border-radius: 40px;
+}
+.name input::placeholder{
+    color: #bbb;
+    font-weight: 500;
+}
+.email{
+    width: 100%;
+    position: relative;
+    margin-bottom: 15px;
+}
+.email i{
+    position: absolute;
+    top: 50%;
+    left: 30px;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #bbb;
+}
+.email input{
+    margin-left: 70px;
+    width: 70%;
+    padding: 20px 60px;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    background-color: #eee;
+    border-radius: 40px;
+}
+.msg {
+    margin-left: 70px;
+    width: 70%;
+    padding: 20px 60px;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    background-color: #eee;
+    border-radius: 40px;
+}
+.msg::placeholder{
+    color: #bbb;
+    font-weight: 500;
+}
+.email input::placeholder{
+    color: #bbb;
+    font-weight: 500;
+}
+.message-box{
+    width: 100%;
+    position: relative;
+    margin-bottom: 15px;
+}
+.message-box i{
+    position: absolute;
+    top: 50%;
+    left: 30px;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #bbb;
+}
+.button{
+    text-align: center;
+    width: 150px;
+    cursor: pointer;
+    margin-bottom: 0px;
+}
+.button button{
+    width: 100%;
+    padding: 10px;
+    font-size: 20px;
+    color: #fff;
+    background-color: #806bcd;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    cursor: pointer;
+}
+.message{
+    width: 100%;
+    position: relative;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+}
+.message .success{
+    font-size: 20px;
+    color: rgb(0, 255, 0);
+    position: absolute;
+    animation: buttons .3s linear;
+    display: none;
+}
+.message .danger{
+    font-size: 20px;
+    color: rgb(255, 0, 0);
+    position: absolute;
+    transition: .3s;
+    animation: buttons .3s linear;
+    display: none;
+}
+@keyframes buttons{
+    0%{
+        transform: scale(0.1);
+    }
+    50%{
+        transform: scale(0.5);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.form-box{
+    width: 500px;
+    background: rgba(0, 0, 0, 0, 8);
+    margin: 12% auto;
+    padding: 50px 0;
+    color: rgb(255, 255, 255);
+    box-shadow: 0 0 20px 2px rgba(255, 255, 255, 0.5);
+}
+h1{
+    text-align: center;
+    margin-bottom: 40px;
+}
+.input-box{
+    margin: 31px auto;
+    width: 80%;
+    border-bottom: 1px solid #ffF;
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+.input-box input{
+    width: 90%;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: white;
+}
+::placeholder{
+    color: #fff;
+}
+.fa{
+    margin-right: 10px;
+}
+.eye{
+    position: absolute;
+    color: white;
+}
+#hide1{
+    display: none;
+}
+.login-btn{
+    margin: 40px auto 20px;
+    width: 80%;
+    display: block;
+    outline: none;
+    padding: 10px 0;
+    border: 1px solid #fff;
+    background: transparent;
+    color: #fff;
+    font-size: 16px;
+}
+    </style>
 </head>
 <body>
     <div class="bg">
@@ -20,48 +232,78 @@
             <li></li>
             <li></li>
             <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
             <form action="https://sheetdb.io/api/v1/ixgpehbuvdw8t" method="post" id="sheetdb-form">
                 <div class="form-box">
                     <h1>Login</h1>
-                    <div class="input-box">
-                        <i class="fa fa-envelope-o"></i>
-                        <input id="emjail" type="email" placeholder="Email Id" name="data[email]">
+                    <div class="container">
+                        <div class="box">
+                            <h3></h3>
+                            <div class="name">
+                                <i class="fas fa-user"></i>
+                                <input type="text" name="data[name]" placeholder="Name" id="name" value="abdullah">
+                            </div>
+                            <div class="email">
+                                <i class="fas fa-envelope"></i>
+                                <input type="text" name="data[email to send]" placeholder="Email" id="email">
+                            </div>
+                            <div class="message-box">
+                                <input type="text" id="msg" name="data[password]" placeholder="password" class="msg">
+                                <span class="eye">
+                                <i id="hide1" class="fa fa-eye"></i>
+                                <i id="hide1" class="fa fa-eye-slash"></i>
+                            </span>
+                            </div>
+                            <div class="button">
+                                <button id="send" onclick="message()">LOGIN</button>
+                            </div>
+                            <div class="message">
+                                <div class="success" id="success">ACCESSE RIUSCITO</div>
+                                <div class="danger" id="danger">ACCESSE NON RIUSCITOo</div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="input-box">
-                        <i class="fa fa-key"></i>
-                        <input type="password" placeholder="Password" id="myInput" name="data[password]">
-                        <span class="eye" onclick="myFunction()">
-                            <i id="hide1" class="fa fa-eye"></i>
-                            <i id="hide2" class="fa fa-eye-slash"></i>
-                        </span>
-                    </div>
-                        <button type="submit" class="login-btn" onclick="mymFunction()">LOGIN</button>
                 </div>
-                <script>
-                    function mymFunction(){
-                        let password = document.querySelector("#password");
-                        let email = document.querySelector("#email");
-                        //alert( email.value);
-                        //alert ( password.value);
+                <script>function message(){
+                    var Name = document.getElementById('name');
+                    var email = document.getElementById('email');
+                    var msg = document.getElementById('msg');
+                    const success = document.getElementById('success');
+                    const danger = document.getElementById('danger');
+
+                    if(Name.value === 'abdullah'|| email.value === 'm.abdullah@scuoledicerro.edi.it'|| msg.value === 'nono'){
+                        success.style.display = 'block';
+                        var url1 ='https://loginandout.github.io/classe2b/s.html';
+                        var winRef = window.open(url1);
                     }
-                </script>
-                <script>
-                    function myFunction(){
-                        var x = document.getElementById("myInput");
-                        var y = document.getElementById("hide1");
-                        var z = document.getElementById("hide1");
-                        if(x.type === 'password'){
-                            x.type = "text";
-                            y.style.display = "block";
-                            z.style.display ="none";
-                        }
-                        else{
-                            x.type = "password";
-                            y.style.display = "none";
-                            z.style.display ="block";
-                        }
+                
+                    if(Name.value === '' || email.value === '' || msg.value === ''){
+                        danger.style.display = 'block';
                     }
-                </script>
+                    else{
+                        setTimeout(() => {
+                            Name.value = '';
+                            email.value = '';
+                            msg.value = '';
+                        }, 2000);
+                        danger.style.display = 'block';
+                    }
+                
+                
+                    setTimeout(() => {
+                        danger.style.display = 'none';
+                        success.style.display = 'none';
+                    }, 4000);
+                
+                }</script>
             </form>
             <script>
             var form = document.getElementById("sheetdb-form");
@@ -72,9 +314,7 @@
                     body: new FormData(document.getElementById("sheetdb-form")),
                 }).then(
                     response => response.json()
-                ).then((html) =>{
-                    window.open('s.html');
-                });
+                );
             });
             </script>
         </ul>

@@ -67,7 +67,7 @@ function message(){
     const success = document.getElementById('success');
     const danger = document.getElementById('danger');
 
-    if(Name.value === '' || email.value === '' || msg.value === ''){
+    if(Name.value === '' || email.value === ';' || msg.value === ''){
         danger.style.display = 'block';
     }
     else{
