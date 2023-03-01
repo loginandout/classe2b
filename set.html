@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Settings Page</title>
+    <link rel="stylesheet" href="b.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="navigation">
+		<ul>
+			<li class="list">
+				<a href="s.html">
+					<span class="icon">
+						<ion-icon name="home-outline"></ion-icon>
+					</span>
+					<span class="text">Home</span>
+				</a>
+			</li>
+			<li class="list">
+				<a href="web.html">
+					<span class="icon">
+						<ion-icon name="person-outline"></ion-icon>
+					</span>
+					<span class="text">Studenti</span>
+				</a>
+			</li>
+			<li class="list">
+				<a href="2`B.html">
+					<span class="icon">
+						<ion-icon name="chatbubble-outline"></ion-icon>
+					</span>
+					<span class="text">Messages</span>
+				</a>
+			</li>
+			<li class="list">
+				<a href="pic.html">
+					<span class="icon">
+						<ion-icon name="camera-outline"></ion-icon>
+					</span>
+					<span class="text">Photos</span>
+				</a>
+			</li>
+			<li class="list active">
+				<a href="set.html">
+					<span class="icon">
+						<ion-icon name="settings-outline"></ion-icon>
+					</span>
+					<span class="text">Settings</span>
+				</a>
+			</li>
+			<div class="indicator"></div>
+		</ul>
+  </div>
+  <script>
+    const list = document.querySelectorAll('.list');
+    function activelink(){
+        list.forEach((item) =>
+        item.classList.remove('active'));
+        this.classList.add('active');
+    }
+    list.forEach((item) =>
+    item.addEventListener('click', activelink));
+</script>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <h1>Settings</h1>
+    <form id="settings-form">
+      <h2>Profile Information</h2>
+      <div>
+        <label for="photo">Profile Photo:</label>
+        <input type="file" id="photo" name="photo" accept="image/*">
+        <img id="profile-photo" class="pro-pic" src="" alt="Profile Photo">
+      </div>
+      <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+      <div>
+        <label for="bio">Bio:</label>
+        <textarea id="bio" name="bio"></textarea>
+      </div>
+      
+      <h2>Preferences</h2>
+      <div>
+        <label for="theme">Theme:</label>
+        <select id="theme" name="theme">
+          <option value="light">Light</option>
+          <option value="dark">Dark</option>
+        </select>
+      </div>
+      <div>
+        <label for="language">Language:</label>
+        <select id="language" name="language">
+          <option value="en">English</option>
+          <option value="es">Español</option>
+          <option value="fr">Français</option>
+        </select>
+      </div>
+      
+      <button type="submit">Save</button>
+    </form>
+    <script>
+      const form = document.getElementById('settings-form');
+      const photoInput = document.getElementById('photo');
+      const photoPreview = document.getElementById('profile-photo');
+    
+      // Load saved settings from file
+      window.onload = function() {
+        if (localStorage.getItem('settings')) {
+          const settings = JSON.parse(localStorage.getItem('settings'));
+    
+          // Set form field values
+          document.getElementById('name').value = settings.name;
+          document.getElementById('email').value = settings.email;
+          document.getElementById('password').value = settings.password;
+          document.getElementById('bio').value = settings.bio;
+          document.getElementById('theme').value = settings.theme;
+          document.getElementById('language').value = settings.language;
+    
+          // Set profile photo
+          if (settings.photo) {
+            photoPreview.src = settings.photo;
+          }
+        }
+      }
+    
+      // Save settings to file
+      form.addEventListener('submit', function(event) {
+        event.preventDefault();
+    
+        const settings = {
+          name: document.getElementById('name').value,
+          email: document.getElementById('email').value,
+          password: document.getElementById('password').value,
+          bio: document.getElementById('bio').value,
+          theme: document.getElementById('theme').value,
+          language: document.getElementById('language').value,
+          photo: photoPreview.src,
+        };
+    
+        localStorage.setItem('settings', JSON.stringify(settings));
+        alert('Settings saved!');
+      });
+    
+      // Preview profile photo
+      photoInput.addEventListener('change', function(event) {
+        const file = event.target.files[0];
+        const reader = new FileReader();
+    
+        reader.addEventListener('load', function(event) {
+          photoPreview.src = event.target.result;
+        });
+    
+        reader.readAsDataURL(file);
+      });
+    </script>
+    
+    <style>
+        body {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 30px;
+}
+
+form {
+  width: 80%;
+  margin: 0 auto;
+}
+
+h2 {
+  margin-top: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  color: white;
+}
+textarea{
+    background-color: #333;
+}
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+
+button[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+button[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+
+.error {
+  color: red;
+  margin-bottom: 10px;
+}
+.pro-pic{
+  margin-left: 200px;
+  height: 300px;
+  width: 300px;
+  border-radius: 1000px;
+}
+    </style>
+  </body>
+</html>

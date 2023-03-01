@@ -1,14 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Upload Photo Like FB DP</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <title>Upload and Save Images</title>
   <link rel="stylesheet" href="b.css">
 </head>
 <body>
-    <div class="navigation">
+	<div class="navigation">
 		<ul>
 			<li class="list">
 				<a href="s.html">
@@ -19,7 +17,7 @@
 				</a>
 			</li>
 			<li class="list">
-				<a href="#">
+				<a href="web.html">
 					<span class="icon">
 						<ion-icon name="person-outline"></ion-icon>
 					</span>
@@ -43,7 +41,7 @@
 				</a>
 			</li>
 			<li class="list">
-				<a href="#">
+				<a href="set.html">
 					<span class="icon">
 						<ion-icon name="settings-outline"></ion-icon>
 					</span>
@@ -65,19 +63,87 @@
 </script>
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <div class="upload-section">
+    <h1>Upload Your Image</h1>
+    <input type="file" id="file-input">
+    <button id="save-btn">Save Image</button>
+  </div>
+  
+  <div class="gallery-section">
+    <h1>MY PROFILE PICTURE</h1>
+    <div id="gallery"></div>
+  </div>
 
-<h1 class="gg">post your picture</h1>
-<div class="gg"><input class="ggo" type="text" placeholder="Post Your Picture">
-</div>
-<div class="profile-pic-div">
-  <img src="image.jpg" id="photo">
-  <input type="file" id="file">
-  <label for="file" id="uploadBtn">Choose Photo</label>
-</div>
+  <script>
+	const fileInput = document.getElementById('file-input');
+const saveBtn = document.getElementById('save-btn');
+const gallery = document.getElementById('gallery');
 
+// function to save image locally
+function saveImageToLocalStorage() {
+  const file = fileInput.files[0];
+  const reader = new FileReader();
+  
+  reader.addEventListener("load", function() {
+    localStorage.setItem("uploadedImage", reader.result);
+    displayImage();
+  }, false);
+  
+  if (file) {
+    reader.readAsDataURL(file);
+  }
+}
 
-<script src="app.js"></script>
+// function to display saved image
+function displayImage() {
+  const savedImage = localStorage.getItem("uploadedImage");
+  
+  if (savedImage) {
+    gallery.innerHTML = `<img src="${savedImage}" alt="Uploaded Image">`;
+  }
+}
 
-<d
+// check if there's a saved image and display it on page load
+window.addEventListener('load', function() {
+  displayImage();
+});
+
+// add event listener to save button
+saveBtn.addEventListener('click', function() {
+  saveImageToLocalStorage();
+});
+
+  </script>
+  <style>
+	.upload-section, .gallery-section {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.upload-section input {
+  margin: 10px;
+}
+
+.upload-section button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.gallery-section img {
+  max-width: 300px;
+  margin: 10px;
+}
+
+  </style>
 </body>
 </html>
