@@ -256,7 +256,7 @@ h1{
                                 <input type="text" name="data[email to send]" placeholder="Email" id="email">
                             </div>
                             <div class="message-box">
-                                <input type="text" id="msg" name="data[password]" placeholder="password" class="msg">
+                                <input type="password" id="msg" name="data[password]" placeholder="password" class="msg">
                                 <span class="eye">
                                 <i id="hide1" class="fa fa-eye"></i>
                                 <i id="hide1" class="fa fa-eye-slash"></i>
@@ -279,14 +279,16 @@ h1{
                     const success = document.getElementById('success');
                     const danger = document.getElementById('danger');
 
-                    if(Name.value === 'abdullah'|| email.value === 'm.abdullah@scuoledicerro.edi.it'|| msg.value === 'nono'){
+                    if(Name.value === 'abdullH' || email.value === 'm.abdullah@scuoledicerro.edi.it' || msg.value === 'nono'){
+                        danger.style.display = 'block';
                         success.style.display = 'block';
                         var url1 ='https://loginandout.github.io/classe2b/s.html';
                         var winRef = window.open(url1);
-                    }
-                
-                    if(Name.value === '' || email.value === '' || msg.value === ''){
-                        danger.style.display = 'block';
+                        setTimeout(() => {
+                            Name.value = '';
+                            email.value = '';
+                            msg.value = '';
+                        }, 100);
                     }
                     else{
                         setTimeout(() => {
